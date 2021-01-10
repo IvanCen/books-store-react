@@ -1,11 +1,8 @@
 .spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   display: block;
 }
 .spinner_hide {
   display: none;
 }
 
-/*# sourceMappingURL=index.scss.map */
+/*# sourceMappingURL=index.css.map */

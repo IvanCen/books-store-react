@@ -1,12 +1,12 @@
 import React from "react";
-import BookList from "../components/Book-list";
 import ShoppingCartTable from "../components/Shopping-cart-table";
+import BookListContainer from "../components/Book-list-container";
 
 function HomePage() {
   return (
     <div>
       <h1>Home</h1>
-      <BookList/>
+      <BookListContainer/>
       <ShoppingCartTable/>
     </div>
   );
