@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import './index.css'
-import {bookRemoveToCart} from "../../actions";
+import {bookRemoveToCart, bookRemoveALLToCart, bookAddedToCart} from "../../actions";
 
 const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => {
   const renderRow = (item, index) => {
-    const {title, price, count, id} = item
+    const {title, total, count, id} = item
     return (
       <tr key={id}>
         <td>{index + 1}</td>
         <td>{title}</td>
         <td>{count}</td>
-        <td>${price}</td>
+        <td>${total}</td>
         <td>
           <button className="btn btn-outline-danger btn-sm float-right" onClick={() => onDelete(id)}>
             <i className="fa fa-trash-o"/>
@@ -52,17 +52,17 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
   );
 };
 
-const mapStateToProps = ({cartItems, orderTotal}) => {
+const mapStateToProps = ({shoppingCart: {cartItems, orderTotal}}) => {
   return {
     items: cartItems,
     total: orderTotal
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onDelete: (id)=> dispatch(bookRemoveToCart(id))
-  }
+const mapDispatchToProps = {
+  onDelete: bookRemoveALLToCart,
+  onDecrease: bookRemoveToCart,
+  onIncrease: bookAddedToCart,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartTable);

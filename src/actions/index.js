@@ -3,6 +3,7 @@ export const booksError = (error) => ({type: 'FETCH_BOOKS_FAILURE', payload: err
 export const booksRequested = () => ({type: 'FETCH_BOOKS_REQUEST'})
 export const bookAddedToCart = (bookId) => ({type: 'BOOK_ADDED_TO_CART', payload: bookId})
 export const bookRemoveToCart = (bookId) => ({type: 'BOOK_REMOVE_TO_CART', payload: bookId})
+export const bookRemoveALLToCart = (bookId) => ({type: 'BOOK_REMOVE_ALL_TO_CART', payload: bookId})
 export const fetchBooks = (bookstoreService, dispatch) => () => {
   dispatch(booksRequested())
   bookstoreService.getBooks()
