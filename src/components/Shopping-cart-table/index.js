@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import './index.css'
 import {bookRemoveToCart, bookRemoveALLToCart, bookAddedToCart} from "../../actions";
+import {Link} from "react-router-dom";
 
 const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => {
   const renderRow = (item, index) => {
@@ -24,6 +25,15 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
           </button>
         </td>
       </tr>)
+  }
+
+  if (items.length === 0) {
+    return (
+      <div>
+        <h1>Your cart is empty</h1>
+        <Link to="/">Back to catalog</Link>
+      </div>
+    )
   }
 
   return (
